@@ -10,6 +10,7 @@ import automata.common.service.DfaMinimizationService;
 import automata.common.service.EquivalenceVerificationService;
 import automata.common.service.SubsetConstructionService;
 import automata.telemetria.TelemetriaAutomata;
+import automata.ecommerce.EcommerceAutomata;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,14 +37,17 @@ public class AutomataController {
     private final SubsetConstructionService subsetConstructionService;
     private final DfaMinimizationService minimizationService;
     private final EquivalenceVerificationService equivalenceService;
+    private final EcommerceAutomata ecommerceAutomata;
 
     public AutomataController(TelemetriaAutomata telemetriaAutomata,
                               BioinformaticaAutomata bioinformaticaAutomata,
+                              EcommerceAutomata ecommerceAutomata,
                               SubsetConstructionService subsetConstructionService,
                               DfaMinimizationService minimizationService,
                               EquivalenceVerificationService equivalenceService) {
         this.telemetriaAutomata = telemetriaAutomata;
         this.bioinformaticaAutomata = bioinformaticaAutomata;
+        this.ecommerceAutomata = ecommerceAutomata;
         this.subsetConstructionService = subsetConstructionService;
         this.minimizationService = minimizationService;
         this.equivalenceService = equivalenceService;
@@ -77,6 +81,7 @@ public class AutomataController {
         switch (normalizedType) {
             case "telemetria" -> nfa = telemetriaAutomata.build();
             case "bioinformatica" -> nfa = bioinformaticaAutomata.build();
+            case "ecommerce" -> nfa = ecommerceAutomata.build();
             default -> throw new ResponseStatusException(HttpStatus.NOT_FOUND,
                     "Tipo de automata no soportado: " + type);
         }

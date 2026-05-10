@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react';
 
 const imageNames = {
   telemetria: 'telemetria-afd-minimizado.png',
-  bioinformatica: 'bioinformatica-afd-minimizado.png'
+  bioinformatica: 'bioinformatica-afd-minimizado.png',
+  ecommerce: 'ecommerce-afd-minimizado.png'
 };
 
 export default function DiagramViewer({ type }) {

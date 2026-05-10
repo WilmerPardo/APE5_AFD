@@ -1,8 +1,9 @@
-import { Activity, Dna } from 'lucide-react';
+import { Activity, Dna, ShoppingCart } from 'lucide-react';
 
 const options = [
   { value: 'telemetria', label: 'Telemetria', icon: Activity, alphabet: 'r h t c' },
-  { value: 'bioinformatica', label: 'Bioinformatica', icon: Dna, alphabet: 'X K G F' }
+  { value: 'bioinformatica', label: 'Bioinformatica', icon: Dna, alphabet: 'X K G F' },
+  { value: 'ecommerce', label: 'Ecommerce', icon: ShoppingCart, alphabet: 'H S C' }
 ];
 
 export default function AutomataSelector({ value, onChange }) {
